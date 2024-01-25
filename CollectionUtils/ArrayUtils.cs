@@ -34,37 +34,6 @@ namespace PJ.Utils
                 return sub[index];
             }
         }
-        public static string ArrayToString<T>(this T[] arr)
-        {
-            StringBuilder sb = new StringBuilder("[");
-            foreach(var e in arr)
-            {
-                sb.Append($"{e}, ");
-            }
-            sb.Replace(", ", "]", sb.Length-2, 2);
-            return sb.ToString();
-        }
-
-        public static string ArrayToString<T>(this T[,] arr)
-        {
-            int rowCount = arr.GetLength(0);
-            int colCount = arr.GetLength(1);
-            StringBuilder sb = new StringBuilder("[");
-
-            for(int i = 0; i<rowCount; i++)
-            {
-                sb.Append("[");
-                for(int j = 0; j <colCount; j++)
-                {
-                    sb.Append($"{arr[i, j]}, ");
-                }
-                sb.Replace(", ", "],\n", sb.Length-2, 2);
-            }
-            sb.Replace(",\n", "]", sb.Length-2, 2);
-
-            
-            return sb.ToString();
-        }
 
         public static void MakeSequence<T>(this T[] arr, Func<int, T> nthTerm)
         {
